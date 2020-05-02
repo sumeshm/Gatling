@@ -6,12 +6,12 @@ import scala.concurrent.duration._
 
 class BasicSuite extends Simulation {
 
-  val scenarionV1 = scenario("scenarionV1").exec(BasicScenario.scenarionV1).pause(2)
-  val scenarionV1Copy = scenario("scenarionV1Copy").exec(BasicScenario.scenarionV1).pause(2)
+  val scenarion1 = scenario("scenarionV1").exec(BasicScenario.scenarionHttpGet).pause(2)
+  val scenarion2 = scenario("scenarionV1Copy").exec(BasicScenario.scenarionHttpGet).pause(2)
 
   setUp(
-    scenarionV1.inject(atOnceUsers(1)),
-    scenarionV1Copy.inject(atOnceUsers(1))
+    scenarion1.inject(atOnceUsers(1)),
+    scenarion2.inject(atOnceUsers(1))
   )
 
 }
