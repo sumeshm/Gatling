@@ -1,11 +1,11 @@
-package csv
+package ramp
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.concurrent.duration._
 import io.gatling.http.request.builder.HttpRequestBuilder.toActionBuilder
 
-object CsvInputScenario {
+object RampScenario {
 
   val scenarionHttpGet = scenario("Http-GET")
     .exec(
