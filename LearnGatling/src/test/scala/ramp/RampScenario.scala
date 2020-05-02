@@ -18,10 +18,14 @@ object RampScenario {
         .check(bodyString.saveAs("HTTP-Response")
       )
     )
-    .pause(1)
     .exec(session => {
-      session.set("key", "value");
+      // extract previous session data
+      // also add data for next session
+      session.set("key", "value")
+      var responseBody = session("HTTP-Response").as[String]
+      System.out.println("####### responseBody=" + responseBody.size)
       session;
     })
+    .pause(1)
 }
 
